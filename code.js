@@ -18,7 +18,7 @@ function displayResults(response){
         $('.searched').append(`
             <div class="result">
             <h2>${found.fullName}</h2>
-            <p><${found.description}/p>
+            <p>${found.description}</p>
             <a href="${found.url}" target="_blank">Checkout the park!</a>
             </div>
         `);
