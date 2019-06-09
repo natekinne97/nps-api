@@ -9,12 +9,9 @@ function pingApi(term, limit){
 // display results in the DOM
 function displayResults(response){
     $('.searched').show();
-    console.log(response);
     console.log(response.data[1].fullName);
     response.data.forEach(function(found){
-        console.log(found.fullName);
-        console.log(found.description);
-        console.log(found.url);
+        
         $('.searched').append(`
             <div class="result">
             <h2>${found.fullName}</h2>
@@ -40,8 +37,9 @@ function getUsrInput(){
        let limit = $('#number-to-display').val();
         // set term to lowercase
         term.toLowerCase();
+        term = term.replace(/\s+/g, '');
         // check if term and number of results to display will work
-        if(term.length < 3 && limit <= 10){
+        if(term.length < 7 && limit <= 10){
             pingApi(term, limit);
         }else{
            $('.error').removeClass('hidden');
